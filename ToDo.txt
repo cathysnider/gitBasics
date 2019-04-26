@@ -8,7 +8,8 @@ https://www.codementor.io/git/tutorial/git-github-tutorial-for-beginners
 etc
 
 Switch from State Classified Staff to University Staff
- - Read 4 CCR 801 Personnal Board Rules and Personnel Director's Administrative Procedures
+ - Read 4 CCR 801 Personnal Board Rules and Personnel Director's Administrative Procedures DONE
+ - Compare which retirement plan is better: PERA or University
  
 Continue with PHP and MySQL lessons
 Lynda.com and BuildaModule.com
