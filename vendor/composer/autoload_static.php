@@ -187,6 +187,10 @@ class ComposerStaticInitfe4435c9a8033aaa33dcdc287aa203a4
             array (
                 0 => __DIR__ . '/..' . '/behat/behat/src',
             ),
+            'Behat\\MinkExtension' => 
+            array (
+                0 => __DIR__ . '/..' . '/behat/mink-extension/src',
+            ),
             'Behat\\Gherkin' => 
             array (
                 0 => __DIR__ . '/..' . '/behat/gherkin/src',
