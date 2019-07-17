@@ -1,4 +1,4 @@
-name: learnphp
+name: gitbasics
 recipe: lamp
 config:
   webroot: .
