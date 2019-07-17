@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Order Form</title>
+<style>
+div#content {width:500px; margin:3em auto;}
+
+</style>
+</head>
+
+<body>
+<div id="content">
+<h2>Order Form</h2>
+<form action='processorder.php' method="post"> 
+<table>
+<tr><td>Tires</td><td><input name="tireqty" type="text" size="3" maxlength="3" /></td></tr>
+<tr><td>Oil Cans</td><td><input name="oilqty" type="text" size="3" maxlength="3" /></td></tr>
+<tr><td>Spark Plugs</td><td><input name="sparkqty" type="text" size="3" maxlength="3" /></td></tr>
+</table>
+
+<input name="submit" type="submit" value="Submit Order" />
+<input type="reset" value="Reset">
+
+</form>
+</div>
+</body>
+</html>
