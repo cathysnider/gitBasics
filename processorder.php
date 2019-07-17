@@ -20,9 +20,9 @@ $tireqty = $_POST['tireqty'];
 $oilqty = $_POST['oilqty'];
 $sparkqty = $_POST['sparkqty'];
 
-echo '<p>You Ordered ' . $tireqty . ' tires. </p>';
-echo '<p>You Ordered ' . $oilqty . ' oil cans. </p>';
-echo '<p>You Ordered ' . $sparkqty . ' spark plugs. </p>';
+echo '<p>You Ordered ' . $tireqty . ' tire(s). </p>';
+echo '<p>You Ordered ' . $oilqty . ' oil can(s). </p>';
+echo '<p>You Ordered ' . $sparkqty . ' spark plug(s). </p>';
 
 ?>
 
