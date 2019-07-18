@@ -1,32 +1,40 @@
 <?php
 
+
+// Set some spacer constants
+define("SPACES", "&nbsp; &nbsp;");
+define("LINEBREAK", "</br />");
+define("PARAGRAPH", "<p>&nbsp;</p>");
+
+$linebreak = "</br />";
+$paragraph = '<p>&nbsp;</p>';
+$spaces = '&nbsp; &nbsp; ';
 /*
-echo $linebreak = "</br />";
-echo $paragraph = '<p>&nbsp;</p>';
-echo $spaces = '&nbsp; &nbsp; ';
+echo $linebreak;
+echo $paragraph;
+echo $spaces;
 */
 
-// The next step is taking the data and processing it.
-function replace_tokens_with_randomness($string, $replacements) { 
-  
-  // Loop through each replacement. We can have as many replacements as we want.
-  foreach ($replacements as $token => $replacement_array) {
-    $replacement_string = array_rand(array_flip($replacement_array));
-    $string = str_replace($token, $replacement_string, $string);
-  }
-  
-  return $string;
-}
 
 // Step 1 is often isolating the data that could change from one function call to another.
 $string = 'This peach is ADVERB ADJECTIVEPUNCTUATION';
 $replacements = array(
-  'ADVERB' => array('very', 'kind of', 'super', 'not'),
-  'ADJECTIVE' => array('good', 'bad', 'ugly'),
-  'PUNCTUATION' => array('!', '?', '...', '.'),
+    'ADVERB' => array('very', 'kind of', 'super', 'not'),
+    'ADJECTIVE' => array('good', 'bad', 'ugly'),
+    'PUNCTUATION' => array('!', '?', '...', '.'),
 );
 
+// The next step is taking the data and processing it.
+function replace_tokens_with_randomness($string, $replacements) {
 
+    // Loop through each replacement. We can have as many replacements as we want.
+    foreach ($replacements as $token => $replacement_array) {
+        $replacement_string = array_rand(array_flip($replacement_array));
+        $string = str_replace($token, $replacement_string, $string);
+    }
+
+    return $string;
+}
 
 // Pass our data to the function.
 print replace_tokens_with_randomness($string, $replacements);

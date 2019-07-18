@@ -1,9 +1,13 @@
 <?php
 
 /*
-echo $linebreak = "</br />";
-echo $paragraph = '<p>&nbsp;</p>';
-echo $spaces = '&nbsp; &nbsp; ';
+$linebreak = "</br />";
+$paragraph = '<p>&nbsp;</p>';
+$spaces = '&nbsp; &nbsp; ';
+
+echo $linebreak;
+echo $paragraph;
+echo $spaces;
 */
 
 
