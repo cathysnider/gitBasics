@@ -86,5 +86,30 @@ function myForEachLoopNested($multiArrayName) {
 
 myForEachLoopNested($myMultiArray);
 
+echo "<p><b>Using a ForEachKeyValue loop with a Multidimensional array to replace tokens in a string</b></p>";
 
+// Step 1 is often isolating the data that could change from one function call to another.
+$string = 'This myFruit is myAdverb myAdjectiveMyPunctuation';
+$multiArrayName = array(
+    'myFruit' => array('peach', 'apple', 'banana', 'orange', 'apricot'),
+    'myAdverb' => array('very', 'kind of', 'super', 'not'),
+    'myAdjective' => array('good', 'bad', 'ugly'),
+    'MyPunctuation' => array('!!', '??', '...', '.'),
+);
+
+
+// The next step is taking the data and processing it.
+function replace_tokens_with_randomness($string, $multiArrayName) {
+    echo "Initial string with tokens: " . $string . LINEBREAK;
+    // Loop through each replacement. We can have as many replacements as we want.
+    foreach ($multiArrayName as $arrayName => $elementSet) {
+        $newWord = array_rand(array_flip($elementSet)); # chooses a new word
+        $string = str_replace($arrayName, $newWord, $string); #replaces old word with new word
+        echo "Looping: " . $string . LINEBREAK;
+    }
+    return $string;
+}
+
+$newString = replace_tokens_with_randomness($string, $multiArrayName);
+echo "The final string: " . $newString;
 ?>

@@ -6,38 +6,54 @@ define("SPACES", "&nbsp; &nbsp;");
 define("LINEBREAK", "</br />");
 define("PARAGRAPH", "<p>&nbsp;</p>");
 
-$linebreak = "</br />";
-$paragraph = '<p>&nbsp;</p>';
-$spaces = '&nbsp; &nbsp; ';
-/*
-echo $linebreak;
-echo $paragraph;
-echo $spaces;
-*/
-
-
 // Step 1 is often isolating the data that could change from one function call to another.
-$string = 'This peach is ADVERB ADJECTIVEPUNCTUATION';
-$replacements = array(
-    'ADVERB' => array('very', 'kind of', 'super', 'not'),
-    'ADJECTIVE' => array('good', 'bad', 'ugly'),
-    'PUNCTUATION' => array('!', '?', '...', '.'),
+$string = 'This myFruit is myAdverb myAdjectiveMyPunctuation';
+$multiArrayName = array(
+    'myFruit' => array('peach', 'apple', 'banana', 'orange', 'apricot'),
+    'myAdverb' => array('very', 'kind of', 'super', 'not'),
+    'myAdjective' => array('good', 'bad', 'ugly'),
+    'MyPunctuation' => array('!', '?', '...', '.'),
 );
 
+
 // The next step is taking the data and processing it.
-function replace_tokens_with_randomness($string, $replacements) {
+function replace_tokens_with_randomness($string, $multiArrayName) {
 
     // Loop through each replacement. We can have as many replacements as we want.
-    foreach ($replacements as $token => $replacement_array) {
-        $replacement_string = array_rand(array_flip($replacement_array));
-        $string = str_replace($token, $replacement_string, $string);
+    foreach ($multiArrayName as $arrayName => $elementSet) {
+        $newWord = array_rand(array_flip($elementSet)); # chooses a new word
+        $string = str_replace($arrayName, $newWord, $string); #replaces old word with new word
+        echo $string . LINEBREAK;
     }
-
+    echo PARAGRAPH;
     return $string;
 }
 
+print replace_tokens_with_randomness($string, $multiArrayName);
+
+
+
+
+
+function myForEachLoopNested($multiArrayName) {
+
+    foreach ($multiArrayName as $arrayName => $elementSet) {
+        echo "<b>" . $arrayName . "</b><br />";
+        foreach($elementSet as $key => $value) {
+            $i = $i++;
+            print $key . ": " . $value . LINEBREAK;
+        }
+    }
+
+}
+
+
+
+
+
+
 // Pass our data to the function.
-print replace_tokens_with_randomness($string, $replacements);
+
 
 
 // Example for a virtual Twister spinner.
