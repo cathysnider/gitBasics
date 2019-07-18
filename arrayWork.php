@@ -5,7 +5,8 @@ define("SPACES", "&nbsp; &nbsp;");
 define("LINEBREAK", "</br />");
 define("PARAGRAPH", "</br /></br />");
 
-echo "<h2>Arrays</h2>";
+echo "<h2>Simple Arrays</h2>";
+
 
 // First, we create some arrays.
 $countries = array('China', 'Russia', 'Kiwi', 'North Korea', 'Uganda');
@@ -30,24 +31,27 @@ myForLoop($countries);
 
 echo "<b>Using a ForEach Loop; Values only</b>" . LINEBREAK;
 
-function myForEachLoop($arrayName)
-{
+function myForEachLoop($arrayName) {
     foreach ($arrayName as $value) {
         print $value . SPACES;
     }
-    echo PARAGRAPH;
+    echo LINEBREAK;
 }
 
 myForEachLoop($countries);
 myForEachLoop($animals);
 
+echo LINEBREAK;
 echo "<b>Using a ForEach Loop; both Keys and Values</b>" . LINEBREAK;
 
 function myForEachLoopKV($arrayName)
-{
+{   $i = 0;
     foreach ($arrayName as $key => $value) {
-        print $key . " + " . $value . LINEBREAK;
+        $i = $i++;
+        print $key . ": " . $value . LINEBREAK;
     }
+    echo "There are " . $i . " items in this array.";
+    if ($i = 0) {echo "(Well that ain't right.)";}
     echo PARAGRAPH;
 }
 
@@ -55,14 +59,32 @@ myForEachLoopKV($countries);
 myForEachLoopKV($animals);
 
 echo "<h2>Multidimensional Arrays</h2>";
-
 $myMultiArray = array(
-    'Harry' => array('year' => 1972, 'band' => 'The Cure','size' => 10,),
-    'Ron' => array('year' => 1975,'band' => 'Coldplay','size' => 8,),
-    'Hermione' => array('year' => 1969, 'band' => 'Beach Boys', 'size' => 10,)
-    );
+    'Harry' => array('Blood Status' => 'half-blood', 'Wand' => '11", holly, phoenix feather','Born' => 'Godric\'s Hollow, England',),
+    'Ron' => array('Blood Status' => 'pure-blood','Wand' => '12", Ash, unicorn tail hair','Born' => 'Ottery St Catchpole, Devon, England,',),
+    'Hermione' => array('Blood Status' => 'muggle', 'Wand' => '10 3/4", vine wood, dragon heartstring', 'Born' => 'England',)
+);
+echo "<p>The easiest way to loop through a multidimensional array is to nest two foreach loops; 
+the outer loop goes through each outer array element, and the inner loop goes through 
+each inner array element within the selected outer element.</p>";
 
-echo "<b>Using a ForEach Loop ljsdlfjs </b>" . LINEBREAK;
+echo "<b>Using a Nested ForEach Loop on a Multidimensional Array  </b>" . LINEBREAK;
+
+function myForEachLoopNested($multiArrayName) {
+    $i = 0;
+    foreach ($multiArrayName as $arrayName => $elementSet) {
+        echo "<b>" . $arrayName . "</b><br />";
+       foreach($elementSet as $key => $value) {
+           $i = $i++;
+           print $key . ": " . $value . LINEBREAK;
+       }
+    }
+    echo "There are " . $i . " items in this array.";
+    if ($i = 0) {echo "(Well that ain't right.)";}
+    echo PARAGRAPH;
+}
+
+myForEachLoopNested($myMultiArray);
 
 
 ?>
