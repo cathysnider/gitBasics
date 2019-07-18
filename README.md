@@ -1,4 +1,4 @@
-GitHub basics
-PHP
-Behat
-Travis integration
+* GitHub basics
+* PHP
+* Behat
+* Travis integration
