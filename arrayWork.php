@@ -60,9 +60,9 @@ myForEachLoopKV($animals);
 
 echo "<h2>Multidimensional Arrays</h2>";
 $myMultiArray = array(
-    'Harry' => array('Blood Status' => 'half-blood', 'Wand' => '11", holly, phoenix feather','Born' => 'Godric\'s Hollow, England',),
-    'Ron' => array('Blood Status' => 'pure-blood','Wand' => '12", Ash, unicorn tail hair','Born' => 'Ottery St Catchpole, Devon, England,',),
-    'Hermione' => array('Blood Status' => 'muggle', 'Wand' => '10 3/4", vine wood, dragon heartstring', 'Born' => 'England',)
+    'Harry' => array('Blood Status' => 'Half-blood', 'Wand' => 'Holly & Phoenix feather','Patronus' => 'Stag',),
+    'Ron' => array('Blood Status' => 'Pure-blood','Wand' => 'Ash & Unicorn tail hair','Patronus' => 'Jack Russell Terrier',),
+    'Hermione' => array('Blood Status' => 'Muggle', 'Wand' => 'Vine Wood & Dragon Heartstring', 'Patronus' => 'Otter',)
 );
 echo "<p>The easiest way to loop through a multidimensional array is to nest two foreach loops; 
 the outer loop goes through each outer array element, and the inner loop goes through 
@@ -88,9 +88,9 @@ myForEachLoopNested($myMultiArray);
 
 echo "<p><b>Using a ForEachKeyValue loop with a Multidimensional array to replace tokens in a string</b></p>";
 
-// Step 1 is often isolating the data that could change from one function call to another.
-$string = 'This myFruit is myAdverb myAdjectiveMyPunctuation';
-$multiArrayName = array(
+// String replacement with random array elements
+$fruitString = 'This myFruit is myAdverb myAdjectiveMyPunctuation';
+$fruitWords = array(
     'myFruit' => array('peach', 'apple', 'banana', 'orange', 'apricot'),
     'myAdverb' => array('very', 'kind of', 'super', 'not'),
     'myAdjective' => array('good', 'bad', 'ugly'),
@@ -103,13 +103,27 @@ function replace_tokens_with_randomness($string, $multiArrayName) {
     echo "Initial string with tokens: " . $string . LINEBREAK;
     // Loop through each replacement. We can have as many replacements as we want.
     foreach ($multiArrayName as $arrayName => $elementSet) {
-        $newWord = array_rand(array_flip($elementSet)); # chooses a new word
+        $newWord = array_rand(array_flip($elementSet)); # chooses a random key word from flipped array
         $string = str_replace($arrayName, $newWord, $string); #replaces old word with new word
         echo "Looping: " . $string . LINEBREAK;
     }
     return $string;
 }
+$newFruitString = replace_tokens_with_randomness($fruitString, $fruitWords);
+echo "The final string: " . $newFruitString;
 
-$newString = replace_tokens_with_randomness($string, $multiArrayName);
-echo "The final string: " . $newString;
+// Example for a virtual Twister spinner.
+
+echo "<p><b>Let's Play Twister</b></p>";
+$twisterString = 'Put your LOCATION LIMB on a COLOR circle';
+$twisterWords = array(
+  'LOCATION' => array('right', 'left'),
+  'LIMB' => array('hand', 'foot'),
+  'COLOR' => array('red', 'green', 'blue', 'yellow'),
+);
+$newTwisterString = replace_tokens_with_randomness($twisterString, $twisterWords);
+echo "The final string: " . $newTwisterString;
+
+
+echo PARAGRAPH;
 ?>
