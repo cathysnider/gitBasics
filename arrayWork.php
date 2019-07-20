@@ -48,7 +48,7 @@ function myForEachLoopKV($arrayName)
 {   $i = 0;
     foreach ($arrayName as $key => $value) {
         $i = $i++;
-        print $key . ": " . $value . LINEBREAK;
+        print $key . ": " . $value . LINEBREAK;9
     }
     echo "There are " . $i . " items in this array.";
     if ($i = 0) {echo "(Well that ain't right.)";}
@@ -68,7 +68,7 @@ echo "<p>The easiest way to loop through a multidimensional array is to nest two
 the outer loop goes through each outer array element, and the inner loop goes through 
 each inner array element within the selected outer element.</p>";
 
-echo "<b>Using a Nested ForEach Loop on a Multidimensional Array  </b>" . LINEBREAK;
+echo "<b>Using a Nested ForEach Loop on a Multidimensional Array</b>" . LINEBREAK;
 
 function myForEachLoopNested($multiArrayName) {
     $i = 0;
